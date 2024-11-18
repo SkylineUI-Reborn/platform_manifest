@@ -9,10 +9,20 @@
            fetch="https://gitlab.com/PixelOS-AOSP"
            revision="refs/heads/fifteen" />
 
+  <remote  name="SkylineUI"
+           fetch="https://github.com/SkylineUI-Reborn"
+           revision="refs/heads/fifteen" />
+
+  <remote  name="SkylineUI-Devices"    
+           fetch="https://github.com/SkylineUI-Devices"
+           revision="refs/heads/aosp-13" />
+
   <!-- AOSP additions -->
   <project path="bionic" name="bionic" groups="pdk" remote="PixelOS" />
   <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="PixelOS" />
-  <project path="build/make" name="build" groups="pdk" remote="PixelOS">
+
+  <!-- Build -->
+  <project path="build/make" name="platform_build_make" groups="pdk" remote="SkylineUI">
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
     <linkfile src="core" dest="build/core" />
@@ -20,14 +30,16 @@
     <linkfile src="target" dest="build/target" />
     <linkfile src="tools" dest="build/tools" />
   </project>
-  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="PixelOS">
+  <project path="build/soong" name="platform_build_soong" groups="pdk,tradefed" remote="SkylineUI">
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
-  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="PixelOS" />
-  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="PixelOS" />
+  <project path="frameworks/av" name="platform_frameworks_av" groups="pdk" remote="SkylineUI" />
+  <project path="frameworks/base" name="platform_frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="SkylineUI" />
   <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="PixelOS" />
-  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="PixelOS" />
+
+  <!-- Packages -->
+  <project path="packages/apps/Settings" name="platform_packages_apps_Settings" groups="pdk-fs" remote="SkylineUI" />
   <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk" remote="PixelOS" />
   <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="PixelOS" />
   <project path="system/core" name="system_core" groups="pdk" remote="PixelOS" />
@@ -36,10 +48,13 @@
   <project path="device/lineage/sepolicy" name="device_lineage_sepolicy" remote="PixelOS" />
   <project path="packages/apps/ParanoidSense" name="packages_apps_ParanoidSense" remote="PixelOS" />
   <project path="packages/apps/TouchGestures" name="packages_apps_TouchGestures" remote="PixelOS" />
-  <project path="packages/apps/Updater" name="packages_apps_Updater" remote="PixelOS" />
-  <project path="vendor/aosp" name="vendor_aosp" remote="PixelOS" />
+
+  <!-- Vendor -->
+  <project path="vendor/aosp" name="platform_vendor_aosp" remote="SkylineUI" />
   <project path="vendor/custom-preference" name="vendor_custom-preference" remote="PixelOS" />
   <project path="vendor/gms" name="vendor_gms" clone-depth="1" remote="PixelOS-Gitlab" />
   <project path="vendor/google/overlays/ThemeIcons" name="vendor_google_overlays_ThemeIcons" remote="PixelOS" />
 
+  <!-- Official Devices -->
+  <project path="vendor/official_devices" name="official_devices" remote="SkylineUI-Devices" />
 </manifest>

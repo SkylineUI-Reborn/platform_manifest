@@ -1411,8 +1411,9 @@
   </project>
   <!-- END open-source projects -->
 
+  <!-- SkylineUI -->
   <include name="snippets/remove.xml" />
-  <include name="snippets/custom.xml" />
+  <include name="snippets/skylineui.xml" />
   <include name="snippets/lineage.xml" />
 
 </manifest>

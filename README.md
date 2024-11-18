@@ -1,38 +1,80 @@
-# PixelOS
+![SkylineUI](https://github.com/SkylineUI-reborn-dump/platform_manifest/blob/fifteen/SkylineUIBanner.png)
 
-## Getting Started
+# Manifest SkylineUI #
 
-To get started with the PixelOS sources, you'll need to get
-familiar with [Git and Repo](https://source.android.com/setup/build/downloading).
+### Install Git LFS ###
 
-To initialize your local repository, use command:
+It is necessary to install Git LFS to avoid problems with gapps and repositories that are uploaded with Git LFS.
 
+*Avoid this step if you already have Git LFS installed*.
+
+Requirements
+------------
+- At least 250-300 GB free disk space.
+- A computer/server with at least 16GB RAM running Linux and a fast & stable internet connection.
+- Some basic knowledge of Linux commands, device tree management and git.
+
+Instructions
+------------
+### Prerequisites
+A properly configured build environment is required to build AOSP custom roms. A comprehensive guide for setting up the build environment can be found [here](https://source.android.com/setup/build/initializing).
+
+Sync up the source
+------------
 ```bash
-repo init -u https://github.com/PixelOS-AOSP/manifest.git -b fifteen --git-lfs
+sudo apt install git-lfs
+git lfs install
 ```
 
-Then sync up:
+### Sync SkylineUI Source ###
 
 ```bash
-repo sync
+# Initialize local repository
+
+mkdir SkylineUI
+cd SkylineUI
 ```
 
-## Building the System
+- Repo Init Source
+```bash
+repo init -u https://github.com/SkylineUI-Reborn/platform_manifest.git -b fifteen --git-lfs
+```
+Now we proceed with the synchronization of the source with the following command:
+```bash
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+```
+**Note:** To save space and reduce download time during the synchronization process, you can also pass `--depth 1` to the `repo sync` command. However, using `--depth 1` will result in the repositories being synced without any commit history.
 
-Initialize the ROM environment with the envsetup.sh script.
+### Build ###
 
 ```bash
-. build/envsetup.sh
+
+# Set up environment
+ . build/envsetup.sh
+
+# Choose a target
+ lunch aosp_$DEVICE-ap4a-$BUILD_TYPE
+
+# Build the code
+ mka skyline -j$(nproc --all)
 ```
 
-Lunch your device after cloning all device sources if needed.
+# Build Flags
+It will be your decision and if the device supports it `true/false` any of the following flags
 
-```bash
-lunch aosp_devicecodename-ap4a-buildtype
-```
+`You must add these flags in aosp_$device.mk`
 
-Start compilation
+| Flag                          |Function                       |
+|-------------------------------|-------------------------------|
+TARGET_BOOT_ANIMATION_RES := 1080 | Specifies the resolution of the boot animation |
+SKYLINEUI_MAINTAINER := YourName  | Merge the mentioned name in the build |
 
-```bash
-mka bacon
-```
+# Credits:
+
+| Projects                      |
+|-------------------------------|
+| **Android Open Source Project** |
+| [**PixelOS**](https://github.com/PixelOS-AOSP) |
+| [**LineageOS**](https://github.com/LineageOS) |
+| [**DerpFest**](https://github.com/DerpFest-AOSP) |
+| [**YAAP**](https://github.com/yaap) |
