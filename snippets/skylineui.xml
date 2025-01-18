@@ -17,6 +17,10 @@
            fetch="https://github.com/SkylineUI-Devices"
            revision="refs/heads/aosp-13" />
 
+  <remote  name="Spoof"
+           fetch="https://github.com/SkylineUI-reborn"
+           revision="refs/heads/main" />
+
   <!-- AOSP additions -->
   <project path="bionic" name="bionic" groups="pdk" remote="PixelOS" />
   <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="PixelOS" />
@@ -54,6 +58,7 @@
   <project path="vendor/custom-preference" name="vendor_custom-preference" remote="PixelOS" />
   <project path="vendor/gms" name="vendor_gms" clone-depth="1" remote="PixelOS-Gitlab" />
   <project path="vendor/google/overlays/ThemeIcons" name="vendor_google_overlays_ThemeIcons" remote="PixelOS" />
+  <project path="vendor/extra" name="platform_vendor_extra" remote="Spoof" />
 
   <!-- Official Devices -->
   <project path="vendor/official_devices" name="official_devices" remote="SkylineUI-Devices" />
