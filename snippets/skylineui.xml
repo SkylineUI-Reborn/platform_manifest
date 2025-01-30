@@ -44,6 +44,7 @@
 
   <!-- Packages -->
   <project path="packages/apps/Settings" name="platform_packages_apps_Settings" groups="pdk-fs" remote="SkylineUI" />
+  <project path="packages/apps/LMOFreeform" name="platform_packages_apps_LMOFreeform" remote="SkylineUI" />
   <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk" remote="PixelOS" />
   <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="PixelOS" />
   <project path="system/core" name="system_core" groups="pdk" remote="PixelOS" />
