@@ -13,6 +13,10 @@
            fetch="https://github.com/SkylineUI-Reborn"
            revision="refs/heads/fifteen" />
 
+  <remote  name="Spoof"
+           fetch="https://github.com/SkylineUI-Reborn"
+           revision="refs/heads/main" />
+
   <!-- Rootdir -->
   <project path="bionic" name="bionic" groups="pdk" remote="PixelOS" />
   <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="PixelOS" />
@@ -46,5 +50,6 @@
   <project path="vendor/custom-preference" name="vendor_custom-preference" remote="PixelOS" />
   <project path="vendor/gms" name="vendor_gms" clone-depth="1" remote="PixelOS-Gitlab" />
   <project path="vendor/google/overlays/ThemeIcons" name="vendor_google_overlays_ThemeIcons" remote="PixelOS" />
+  <project path="vendor/extra" name="platform_vendor_extra" remote="Spoof" />
 
 </manifest>
