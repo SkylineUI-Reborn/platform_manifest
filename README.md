@@ -67,6 +67,7 @@ It will be your decision and if the device supports it `true/false` any of the f
 | Flag                          |Function                       |
 |-------------------------------|-------------------------------|
 TARGET_BOOT_ANIMATION_RES := 1080 | Specifies the resolution of the boot animation |
+SKYLINEUI_MAINTAINER := YourName | Adds your name into the build |
 
 # Credits:
 
